@@ -779,6 +779,14 @@
     const endpoint = document.getElementById('endpoint');
     const statusPill = document.getElementById('statusPill');
     const statusText = document.getElementById('statusText');
+    
+    // Handle endpoint changes
+    endpoint.addEventListener('input', () => {
+      // Clear any existing connection when endpoint changes
+      if (isStreaming) {
+        showToast('Stop streaming before changing endpoint');
+      }
+    });
     const verdictValue = document.getElementById('verdictValue');
     const probZapPct = document.getElementById('probZapPct');
     const probSafePct = document.getElementById('probSafePct');
